@@ -1,0 +1,71 @@
+:root {
+  /* Surface & Void Palette */
+  --bg-void: #050607;
+  --bg-surface: #090b0e;
+  --bg-elevated: #0e1216;
+  --bg-panel: #13181e;
+  --bg-panel-hover: #192028;
+  --bg-glass: rgba(9, 11, 14, 0.84);
+
+  /* High-Contrast Editorial Plate (Footer Finale) */
+  --plate-light: #f1f2ee;
+  --plate-ink: #07090b;
+  --plate-muted: #464e4a;
+
+  /* Architectural Borders & Rails */
+  --border-rail: rgba(255, 255, 255, 0.042);
+  --border-hairline: rgba(255, 255, 255, 0.09);
+  --border-subtle: rgba(255, 255, 255, 0.16);
+  --border-strong: rgba(255, 255, 255, 0.30);
+
+  /* Typography Ink Hierarchy */
+  --text-primary: #f2f3ef;
+  --text-secondary: #a4aba7;
+  --text-muted: #6c7570;
+
+  /* Restrained Acid-Lime Accent */
+  --accent: #b7f059;
+  --accent-soft: #9fd447;
+  --accent-dim: rgba(183, 240, 89, 0.10);
+  --accent-glow: rgba(183, 240, 89, 0.24);
+  --accent-border: rgba(183, 240, 89, 0.38);
+
+  /* Highlights */
+  --top-highlight: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 100%
+  );
+
+  /* Status */
+  --error: #e27878;
+  --error-dim: rgba(226, 120, 120, 0.12);
+
+  /* Type Families (Scholarly Editorial Serif × Architectural Sans × Mono) */
+  --font-editorial: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-display: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Layout & Grid */
+  --container-max: 1360px;
+  --nav-height: 76px;
+  --radius-sharp: 0px;
+  --radius-subtle: 2px;
+  --radius-card: 14px;
+  --radius-pill: 9999px;
+
+  /* Motion */
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 180ms;
+  --duration-base: 420ms;
+  --duration-slow: 780ms;
+
+  /* Layering */
+  --z-rails: 1;
+  --z-canvas: 2;
+  --z-content: 10;
+  --z-header: 50;
+  --z-drawer: 60;
+}
