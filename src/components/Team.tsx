@@ -24,39 +24,29 @@ export const Team: React.FC = () => {
 
         <div className="team-grid">
           {TEAM_CONTENT.members.map((member, idx) => {
-            const isFounder = Boolean(member.role);
+            const isCoFounder = Boolean(member.isCoFounder);
             return (
               <article
                 key={member.name}
                 className={`team-card arch-frame${
-                  isFounder ? ' team-card--founder' : ''
+                  isCoFounder ? ' team-card--founder' : ''
                 } reveal reveal--delay-${Math.min((idx % 3) + 1, 3)}${
                   isVisible ? ' reveal--visible' : ''
                 }`}
               >
-                <div>
+                <div className="team-card__header">
                   <div className="team-card__meta">
                     <span className="team-card__index">{member.index}</span>
-                    {member.role ? (
-                      <span className="team-card__role">{member.role}</span>
-                    ) : (
-                      <span className="team-card__discipline">{member.discipline}</span>
-                    )}
+                    {isCoFounder && <span className="team-card__role">Co-Founder</span>}
                   </div>
 
                   <h3 className="team-card__name">{member.name}</h3>
-                  {member.role && (
-                    <p className="team-card__discipline team-card__discipline--sub">
-                      {member.discipline}
-                    </p>
-                  )}
-
-                  <p className="team-card__summary">{member.summary}</p>
+                  <p className={`team-card__title${isCoFounder ? ' team-card__title--founder' : ''}`}>
+                    {member.title}
+                  </p>
                 </div>
 
-                <div className="team-card__education-wrap">
-                  <p className="team-card__education">{member.education}</p>
-                </div>
+                <p className="team-card__summary team-card__bio">{member.biography}</p>
               </article>
             );
           })}

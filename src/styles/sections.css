@@ -1531,8 +1531,8 @@
   background: linear-gradient(180deg, rgba(16, 20, 26, 0.84) 0%, rgba(9, 11, 14, 0.96) 100%);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 24px;
+  justify-content: flex-start;
+  gap: 18px;
   transition:
     border-color var(--duration-base) var(--ease-editorial),
     background-color var(--duration-base) var(--ease-editorial);
@@ -1542,8 +1542,8 @@
   border-color: var(--border-subtle);
 }
 
-.team-card:nth-child(4),
-.team-card:nth-child(5) {
+.team-card:nth-child(1),
+.team-card:nth-child(2) {
   grid-column: span 3;
 }
 
@@ -1552,6 +1552,11 @@
   background:
     radial-gradient(ellipse 85% 65% at 88% 8%, rgba(183, 240, 89, 0.065) 0%, transparent 65%),
     linear-gradient(180deg, rgba(18, 23, 21, 0.92) 0%, rgba(9, 11, 14, 0.98) 100%);
+}
+
+.team-card__header {
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-hairline);
 }
 
 .team-card__meta {
@@ -1580,23 +1585,8 @@
   color: var(--accent);
 }
 
-.team-card__discipline {
-  font-family: var(--font-mono);
-  font-size: 0.64rem;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  text-align: right;
-}
-
-.team-card__discipline--sub {
-  margin-top: 6px;
-  text-align: left;
-  color: var(--accent-soft);
-}
-
 .team-card__name {
-  margin-top: 16px;
+  margin-top: 14px;
   font-family: var(--font-editorial);
   font-size: clamp(1.48rem, 2.05vw, 1.88rem);
   font-weight: 400;
@@ -1604,23 +1594,25 @@
   color: var(--text-primary);
 }
 
-.team-card__summary {
-  margin-top: 14px;
-  font-size: 0.95rem;
-  line-height: 1.66;
-  color: var(--text-secondary);
-}
-
-.team-card__education-wrap {
-  padding-top: 16px;
-  border-top: 1px solid var(--border-hairline);
-}
-
-.team-card__education {
+.team-card__title {
+  margin-top: 8px;
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  line-height: 1.55;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  text-transform: uppercase;
   color: var(--text-muted);
+}
+
+.team-card__title--founder {
+  color: var(--accent-soft);
+}
+
+.team-card__summary {
+  margin-top: 0;
+  font-size: 0.94rem;
+  line-height: 1.68;
+  color: var(--text-secondary);
 }
 
 @media (max-width: 1080px) {
@@ -1629,8 +1621,8 @@
   }
 
   .team-card,
-  .team-card:nth-child(4),
-  .team-card:nth-child(5) {
+  .team-card:nth-child(1),
+  .team-card:nth-child(2) {
     grid-column: span 1;
   }
 
@@ -1650,10 +1642,6 @@
 
   .team-card__meta {
     flex-wrap: wrap;
-  }
-
-  .team-card__discipline {
-    text-align: left;
   }
 }
 
