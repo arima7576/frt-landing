@@ -2,17 +2,13 @@ import React, { useCallback, useState } from 'react';
 import { HERO_CONTENT } from '../data/content';
 import { HeroCanvas } from './HeroCanvas';
 
-interface HeroProps {
-  onWorkWithUs: () => void;
-}
-
 const DOMAIN_HREFS: Record<string, string> = {
   '01': '#quantitative-research',
-  '02': '#applied-ai-intelligence',
-  '03': '#business-analytics',
+  '02': '#applied-ai-data-science',
+  '03': '#business-intelligence-solutions',
 };
 
-export const Hero: React.FC<HeroProps> = ({ onWorkWithUs }) => {
+export const Hero: React.FC = () => {
   const [solverPercent, setSolverPercent] = useState(14);
   const [solverPhase, setSolverPhase] = useState<'integrating' | 'converged'>('integrating');
   const [replayToken, setReplayToken] = useState(0);
@@ -82,17 +78,13 @@ export const Hero: React.FC<HeroProps> = ({ onWorkWithUs }) => {
                 <path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" strokeWidth="1.3" />
               </svg>
             </a>
-
-            <button type="button" className="btn btn--secondary" onClick={onWorkWithUs}>
-              {HERO_CONTENT.secondaryCta.label}
-            </button>
           </div>
         </div>
       </div>
 
       <div className="container">
         <div className="hero__footer-bar">
-          <ul className="hero__domains" aria-label="Core research domains">
+          <ul className="hero__domains" aria-label="Core capabilities">
             {HERO_CONTENT.domains.map((domain) => (
               <li key={domain.index}>
                 <a

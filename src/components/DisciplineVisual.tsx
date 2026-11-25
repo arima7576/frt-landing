@@ -10,11 +10,11 @@ const META_LABELS: Record<string, { left: string; right: string }> = {
     left: 'REGIME ENVELOPE',
     right: 'STATISTICAL ASYMMETRY',
   },
-  'applied-ai-intelligence': {
+  'applied-ai-data-science': {
     left: 'INFERENCE GRAPH',
     right: 'SIGNAL ROUTING',
   },
-  'business-analytics': {
+  'business-intelligence-solutions': {
     left: 'FACTOR MATRIX',
     right: 'DRIVER DECOMPOSITION',
   },
@@ -221,7 +221,7 @@ export const DisciplineVisual: React.FC<DisciplineVisualProps> = ({ id }) => {
 
       if (id === 'quantitative-research') {
         drawQuantitative(t, w, h);
-      } else if (id === 'applied-ai-intelligence') {
+      } else if (id === 'applied-ai-data-science') {
         drawAppliedAi(t, w, h);
       } else {
         drawBusinessAnalytics(t, w, h);

@@ -54,7 +54,7 @@ export const Perspective: React.FC = () => {
             <span>Phase Transition // Stochastic Dispersion to Harmonic Structure</span>
             <span className="perspective-visual-frame__status">
               <span className="eyebrow__marker" aria-hidden="true" />
-              <span>Interactive Inquiry Lens</span>
+              <span>Interactive Enquiry Lens</span>
             </span>
           </div>
 

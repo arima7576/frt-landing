@@ -7,23 +7,23 @@ interface ContactProps {
   onOpen: () => void;
 }
 
-interface InquiryState {
+interface EnquiryState {
   name: string;
-  organization: string;
+  organisation: string;
   scope: string;
   context: string;
 }
 
-const INITIAL_FORM: InquiryState = {
+const INITIAL_FORM: EnquiryState = {
   name: '',
-  organization: '',
-  scope: CONTACT_CONTENT.inquiryScopes[0],
+  organisation: '',
+  scope: CONTACT_CONTENT.enquiryTopics[0],
   context: '',
 };
 
 export const Contact: React.FC<ContactProps> = ({ isOpen, onOpen }) => {
   const [sectionRef, isVisible] = useReveal<HTMLElement>();
-  const [formState, setFormState] = useState<InquiryState>(INITIAL_FORM);
+  const [formState, setFormState] = useState<EnquiryState>(INITIAL_FORM);
   const [error, setError] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -40,23 +40,32 @@ export const Contact: React.FC<ContactProps> = ({ isOpen, onOpen }) => {
   }, [isOpen, submitted]);
 
   const formattedBrief = [
-    `${COMPANY_INFO.legalName.toUpperCase()} (${COMPANY_INFO.shortName}) — INQUIRY BRIEF`,
+    `${COMPANY_INFO.legalName.toUpperCase()} (${COMPANY_INFO.shortName}) — ENQUIRY BRIEF`,
     `From: ${formState.name.trim()}${
-      formState.organization.trim() ? ` (${formState.organization.trim()})` : ''
+      formState.organisation.trim() ? ` (${formState.organisation.trim()})` : ''
     }`,
-    `Scope: ${formState.scope}`,
+    `Enquiry Area: ${formState.scope}`,
     `Context:\n${formState.context.trim()}`,
   ].join('\n');
+
+  const handleSelectTopic = (topic: string) => {
+    setFormState((prev) => ({ ...prev, scope: topic }));
+    setSubmitted(false);
+    setError(null);
+    if (!isOpen) {
+      onOpen();
+    }
+  };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!formState.name.trim()) {
-      setError('Please enter your name so we know who we are speaking with.');
+      setError('Please enter your name so we know who is making the enquiry.');
       return;
     }
     if (formState.context.trim().length < 16) {
       setError(
-        'Please share a brief description of the problem or question you would like to explore.',
+        'Please share a concise summary of the project, question, or collaboration you wish to discuss.',
       );
       return;
     }
@@ -106,6 +115,24 @@ export const Contact: React.FC<ContactProps> = ({ isOpen, onOpen }) => {
               {CONTACT_CONTENT.supporting}
             </p>
 
+            <div className="contact-topics" role="group" aria-label="Commercial enquiry areas">
+              {CONTACT_CONTENT.enquiryTopics.map((topic) => {
+                const selected = formState.scope === topic && isOpen;
+                return (
+                  <button
+                    key={topic}
+                    type="button"
+                    className={`contact-topic-pill${
+                      selected ? ' contact-topic-pill--active' : ''
+                    }`}
+                    onClick={() => handleSelectTopic(topic)}
+                  >
+                    {topic}
+                  </button>
+                );
+              })}
+            </div>
+
             {!isOpen && (
               <div className="contact-monolith__cta">
                 <button type="button" className="btn btn--primary" onClick={onOpen}>
@@ -128,19 +155,19 @@ export const Contact: React.FC<ContactProps> = ({ isOpen, onOpen }) => {
                 <div className="contact-confirmation" role="status" aria-live="polite">
                   <p className="eyebrow">
                     <span className="eyebrow__marker" aria-hidden="true" />
-                    <span>Brief Prepared</span>
+                    <span>Enquiry Brief Prepared</span>
                   </p>
                   <h3 className="contact-confirmation__title">
                     Thank you, {formState.name.trim()}.
                   </h3>
                   <p className="contact-panel__prompt">
-                    Your structured inquiry summary is ready below. Copy it to share through your
+                    Your structured enquiry summary is ready below. Copy it to share through your
                     preferred direct channel, or revise any details.
                   </p>
                   <pre className="contact-confirmation__summary">{formattedBrief}</pre>
                   <div className="contact-form__actions">
                     <button type="button" className="btn btn--primary" onClick={handleCopyBrief}>
-                      {copied ? 'Copied Brief' : 'Copy Inquiry Brief'}
+                      {copied ? 'Copied Brief' : 'Copy Enquiry Brief'}
                     </button>
                     <button
                       type="button"
@@ -178,17 +205,17 @@ export const Contact: React.FC<ContactProps> = ({ isOpen, onOpen }) => {
 
                     <div className="form-field">
                       <label htmlFor="contact-org" className="form-label">
-                        Organization
+                        Organisation
                       </label>
                       <input
                         id="contact-org"
-                        name="organization"
+                        name="organisation"
                         type="text"
                         className="form-input"
                         placeholder="Optional"
-                        value={formState.organization}
+                        value={formState.organisation}
                         onChange={(e) =>
-                          setFormState((prev) => ({ ...prev, organization: e.target.value }))
+                          setFormState((prev) => ({ ...prev, organisation: e.target.value }))
                         }
                       />
                     </div>
@@ -196,7 +223,7 @@ export const Contact: React.FC<ContactProps> = ({ isOpen, onOpen }) => {
 
                   <div className="form-field">
                     <label htmlFor="contact-scope" className="form-label">
-                      Area of Inquiry
+                      Area of Enquiry
                     </label>
                     <select
                       id="contact-scope"
@@ -205,9 +232,9 @@ export const Contact: React.FC<ContactProps> = ({ isOpen, onOpen }) => {
                       value={formState.scope}
                       onChange={(e) => setFormState((prev) => ({ ...prev, scope: e.target.value }))}
                     >
-                      {CONTACT_CONTENT.inquiryScopes.map((scope) => (
-                        <option key={scope} value={scope}>
-                          {scope}
+                      {CONTACT_CONTENT.enquiryTopics.map((topic) => (
+                        <option key={topic} value={topic}>
+                          {topic}
                         </option>
                       ))}
                     </select>
@@ -215,13 +242,13 @@ export const Contact: React.FC<ContactProps> = ({ isOpen, onOpen }) => {
 
                   <div className="form-field">
                     <label htmlFor="contact-context" className="form-label">
-                      Problem / Context *
+                      Project / Enquiry Context *
                     </label>
                     <textarea
                       id="contact-context"
                       name="context"
                       className="form-textarea"
-                      placeholder="Outline the question, dataset, or system you are exploring."
+                      placeholder="Outline your objectives, analytical problem, or proposed collaboration."
                       value={formState.context}
                       onChange={(e) =>
                         setFormState((prev) => ({ ...prev, context: e.target.value }))
@@ -238,7 +265,7 @@ export const Contact: React.FC<ContactProps> = ({ isOpen, onOpen }) => {
 
                   <div className="contact-form__actions">
                     <button type="submit" className="btn btn--primary">
-                      Prepare Inquiry Brief
+                      Prepare Enquiry Brief
                     </button>
                     <span className="eyebrow">
                       {COMPANY_INFO.jurisdiction} · No. {COMPANY_INFO.companyNumber}

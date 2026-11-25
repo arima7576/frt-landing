@@ -30,6 +30,15 @@ export interface ProcessStage {
   pillSpan: 'narrow' | 'medium' | 'wide';
 }
 
+export interface TeamMember {
+  index: string;
+  name: string;
+  role?: string;
+  discipline: string;
+  summary: string;
+  education: string;
+}
+
 export interface PhilosophyPrinciple {
   index: string;
   title: string;
@@ -54,182 +63,239 @@ export const COMPANY_INFO = {
 
 export const NAV_ITEMS: readonly NavItem[] = [
   { label: 'Research', href: '#what-we-do', sectionId: 'what-we-do' },
-  { label: 'Intelligence', href: '#process', sectionId: 'process' },
-  { label: 'About', href: '#philosophy', sectionId: 'philosophy' },
+  { label: 'Process', href: '#process', sectionId: 'process' },
+  { label: 'Team', href: '#team', sectionId: 'team' },
+  { label: 'About', href: '#perspective', sectionId: 'perspective' },
   { label: 'Contact', href: '#contact', sectionId: 'contact' },
 ];
 
 export const HERO_CONTENT = {
-  eyebrow: 'Independent Quantitative Research & Applied Intelligence',
+  eyebrow: 'Independent Quantitative Research & Applied AI',
   headline: 'Finding the Edge\nin Complexity.',
   supporting:
-    'We investigate complex markets, uncover overlooked opportunities, and build intelligent systems through quantitative research, advanced mathematics, and AI.',
+    'Independent quantitative research and applied AI, transforming complex data into rigorous insights, intelligent tools, and practical solutions.',
   primaryCta: {
-    label: 'Explore Our Approach',
-    href: '#perspective',
-  },
-  secondaryCta: {
-    label: 'Work With FRT',
-    href: '#contact',
+    label: 'Explore Our Work',
+    href: '#what-we-do',
   },
   manifesto:
-    'Fluid Research & Technologies Limited (FRT) is an independent research and engineering group built for hard questions. Mathematicians, software engineers, and analysts studying complex markets and real-world data to separate durable structure from noise.',
+    'Fluid Research & Technologies Limited (FRT) is an independent quantitative research and applied AI company. Combining mathematics, statistics, financial research, data science, and AI, we turn deep research into practical tools, clear insights, and durable solutions.',
   domains: [
     { index: '01', label: 'Quantitative Research' },
-    { index: '02', label: 'Applied AI & Intelligence' },
-    { index: '03', label: 'Business Analytics' },
+    { index: '02', label: 'Applied AI & Data Science' },
+    { index: '03', label: 'Business Intelligence & Analytical Solutions' },
   ],
 } as const;
 
 export const PERSPECTIVE_CONTENT = {
-  eyebrow: '01 / Our Perspective',
-  headline: 'Better Questions.\nDeeper Research.\nDifferent Outcomes.',
-  lead: 'Meaningful opportunities rarely sit on the surface. When everyone models the same conventions, consensus becomes a blind spot.',
+  eyebrow: '01 / About FRT',
+  headline: 'Independent Research.\nApplied Intelligence.\nPractical Solutions.',
+  lead: 'Fluid Research & Technologies Limited (FRT) is an independent quantitative research and applied AI company built to investigate complex systems from first principles.',
   paragraphs: [
-    'FRT approaches markets and complex operational systems from first principles. Before reaching for sophisticated machinery, we examine structural mechanics, incentives, and subtle anomalies others smooth over.',
-    'Mathematics, computation, and AI are only as sharp as the questions behind them. We pair disciplined skepticism with deep empirical curiosity.',
+    'We bring together mathematics, statistics, financial research, data science, and artificial intelligence within a single disciplined research practice—looking beyond conventional surface metrics where real structural patterns are often overlooked.',
+    'Rather than keeping analysis confined to theory, FRT translates complex research into practical tools, reliable insights, and operational solutions for demanding analytical problems.',
   ],
   tenets: [
     {
       index: '01',
-      title: 'First Principles',
-      body: 'We begin with how a system actually behaves under tension, not how textbook conventions summarize it.',
+      title: 'Mathematical Rigour',
+      body: 'Every investigation begins with formal structure, examining how systems behave under real constraints rather than relying on surface heuristics.',
     },
     {
       index: '02',
       title: 'Signal Over Noise',
-      body: 'Complex data produces endless false patterns. Our focus lies in isolating relationships that persist out of sample.',
+      body: 'High-dimensional datasets generate abundant coincidence. Our work centres on isolating relationships that hold up out of sample.',
     },
     {
       index: '03',
-      title: 'Discipline Over Speed',
-      body: 'Speed without rigor amplifies error. We test hypotheses slowly enough to discover where they break.',
+      title: 'Practical Translation',
+      body: 'Research only creates value when it becomes usable. We build clear analytical software, decision-support tools, and actionable frameworks.',
     },
   ] satisfies PerspectiveTenet[],
 } as const;
 
 export const DISCIPLINES_CONTENT = {
-  eyebrow: '02 / What We Do',
+  eyebrow: '02 / Research & Capabilities',
   headline: 'Investigated from every angle.\nBuilt for precision.',
   subhead:
-    'Three connected disciplines spanning financial market research, applied machine intelligence, and analytical clarity.',
+    'Our capabilities span three interconnected areas—uniting quantitative market research, applied AI engineering, and bespoke business intelligence.',
   areas: [
     {
       index: '01',
       id: 'quantitative-research',
       title: 'Quantitative Research',
-      domainTag: 'Financial Markets & Systematic Strategy',
+      domainTag: 'Financial Markets & Mathematical Modelling',
       summary:
-        'We study financial markets, investigate inefficiencies, and develop systematic strategies grounded in mathematical and statistical research.',
+        'Capabilities in systematic financial research, mathematical modelling, and rigorous empirical analysis across complex market environments.',
       methodologyNote:
-        'Every hypothesis is framed as a falsifiable model tested across changing regimes, market frictions, and structural boundaries.',
+        'Structured around falsifiable hypotheses, statistical precision, and careful attention to regime behaviour and risk.',
       focusAreas: [
-        'Market structure & behavioral asymmetry',
-        'Mathematical & statistical modelling',
-        'Systematic strategy architecture',
+        'Financial market research',
+        'Statistical modelling',
+        'Systematic strategy research',
+        'Market structure and inefficiency analysis',
+        'Risk and portfolio analytics',
       ],
     },
     {
       index: '02',
-      id: 'applied-ai-intelligence',
-      title: 'Applied AI & Intelligence',
-      domainTag: 'Analytical Systems & Decision Software',
+      id: 'applied-ai-data-science',
+      title: 'Applied AI & Data Science',
+      domainTag: 'Machine Learning & Analytical Software',
       summary:
-        'We build intelligent tools and analytical systems that turn complex information into actionable understanding.',
+        'Capabilities in designing and engineering machine learning models, predictive pipelines, and practical AI-powered analytical software.',
       methodologyNote:
-        'Engineered for clarity under uncertainty—combining computational rigor, interpretability, and clean human decision workflows.',
+        'Built for interpretability, stability under noisy inputs, and seamless integration into analytical workflows.',
       focusAreas: [
-        'Custom analytical software & inference pipelines',
-        'Applied machine learning under noisy regimes',
-        'Decision-support infrastructure',
+        'Machine learning',
+        'Predictive modelling',
+        'AI-powered analytical tools',
+        'Data processing and analysis',
+        'Intelligent automation',
       ],
     },
     {
       index: '03',
-      id: 'business-analytics',
-      title: 'Business Analytics',
-      domainTag: 'Applied Data Analysis & Clarity',
+      id: 'business-intelligence-solutions',
+      title: 'Business Intelligence & Analytical Solutions',
+      domainTag: 'Decision Support & Consulting',
       summary:
-        'We help businesses uncover patterns, understand performance, identify opportunities, and make better-informed decisions through advanced data analysis.',
+        'Capabilities focused on turning complex operational and commercial data into tailored analytical systems, reporting, and decision clarity.',
       methodologyNote:
-        'Surface metrics obscure true leverage. We decompose operational performance down to the structural drivers that change outcomes.',
+        'Designed to help organisations isolate true performance drivers, uncover overlooked opportunities, and act on clear evidence.',
       focusAreas: [
-        'Diagnostic performance decomposition',
-        'Operational bottleneck & opportunity discovery',
-        'Evidence-backed strategic guidance',
+        'Bespoke analytical solutions',
+        'Business data intelligence',
+        'Research-led consulting',
+        'Advanced reporting and analytics',
+        'Data-driven decision support',
       ],
     },
   ] satisfies DisciplineArea[],
 } as const;
 
 export const PROCESS_CONTENT = {
-  eyebrow: '03 / Our Research Process',
+  eyebrow: '03 / Research Process',
   headline: 'From Observation\nto Evidence.',
   subhead:
-    'Ideas carry no authority until they survive empirical challenge. Our five-stage workflow keeps curiosity anchored to discipline.',
+    'Ideas carry no authority until they survive empirical scrutiny. Our five-stage methodology keeps curiosity anchored to falsifiable evidence.',
   stages: [
     {
       index: '01',
       id: 'observe',
       title: 'Observe',
-      summary: 'Understand the environment and identify meaningful questions.',
+      summary: 'Interrogate raw data distributions, market microstructure, and system dynamics.',
       detail:
-        'Every inquiry starts by examining raw data, structural frictions, and real system behavior closely enough to notice what aggregated summaries hide.',
-      artifactLabel: 'Domain Mapping & Anomaly Detection',
+        'We examine primary datasets and underlying mechanics directly—identifying structural anomalies, regime shifts, and subtle frictions that aggregated summaries routinely obscure.',
+      artifactLabel: 'Empirical Audit & Anomaly Discovery',
       pillSpan: 'narrow',
     },
     {
       index: '02',
       id: 'hypothesize',
       title: 'Hypothesize',
-      summary: 'Develop ideas and investigate potential opportunities.',
+      summary: 'Formulate explicit, falsifiable mechanisms grounded in domain structure.',
       detail:
-        'Observations become crisp, falsifiable statements: why a relationship should hold, under what conditions it breaks, and what evidence would disprove it.',
-      artifactLabel: 'Causal Framing & Falsifiable Claims',
+        'Observations are distilled into precise causal or statistical propositions: defining why an inefficiency or relationship should exist, its boundary conditions, and clear refutation criteria.',
+      artifactLabel: 'Falsifiable Mechanism Framing',
       pillSpan: 'medium',
     },
     {
       index: '03',
       id: 'model',
       title: 'Model',
-      summary: 'Translate hypotheses into mathematical and computational models.',
+      summary: 'Formalise hypotheses into parsimonious mathematical and computational architectures.',
       detail:
-        'We formalize intuition into parsimonious mathematical, statistical, or machine-learning structures built for stability over parameter complexity.',
-      artifactLabel: 'Mathematical Formalization',
+        'We construct statistical, stochastic, or machine-learning specifications optimised for structural stability, parameter economy, and resistance to high-dimensional overfitting.',
+      artifactLabel: 'Mathematical & Algorithmic Specification',
       pillSpan: 'wide',
     },
     {
       index: '04',
       id: 'test',
       title: 'Test',
-      summary: 'Evaluate strategies using data and rigorous testing.',
+      summary: 'Subject models to out-of-sample evaluation, stress perturbation, and friction checks.',
       detail:
-        'Models face out-of-sample evaluation, stress perturbations, and adversarial checks designed to expose overfitting and fragile assumptions.',
-      artifactLabel: 'Out-of-Sample Stress Evaluation',
+        'Candidate models undergo walk-forward testing, sensitivity sweeps, and adversarial diagnostics designed to uncover data leakage, survivorship bias, or fragile assumptions.',
+      artifactLabel: 'Out-of-Sample & Stress Diagnostics',
       pillSpan: 'medium',
     },
     {
       index: '05',
       id: 'validate',
       title: 'Validate',
-      summary: 'Challenge assumptions and assess whether findings hold up.',
+      summary: 'Audit robustness across edge cases and non-stationary regimes before deployment.',
       detail:
-        'Before any finding informs a system or strategy, we audit edge cases, structural breaks, and hidden biases to verify durability.',
-      artifactLabel: 'Independent Audit & Structural Review',
+        'Before any model informs an analytical system or strategy, assumptions are challenged against distribution shifts, execution realities, and statistical significance thresholds.',
+      artifactLabel: 'Structural Audit & Robustness Review',
       pillSpan: 'wide',
     },
   ] satisfies ProcessStage[],
 } as const;
 
+export const TEAM_CONTENT = {
+  eyebrow: '04 / Team',
+  headline: 'Experience-Led.\nMultidisciplinary Depth.',
+  subhead:
+    'A multidisciplinary research and engineering team combining trading experience, financial research, applied machine learning, complex systems, and mathematical rigour.',
+  members: [
+    {
+      index: '01',
+      name: 'Siavash Khajjat',
+      discipline: 'Quantitative Research & Machine Learning',
+      summary:
+        'Works across quantitative research, machine learning, data science, and model validation—applying statistical and systems-engineering discipline to empirical testing.',
+      education:
+        'MSc Statistics with Data Science, University of Warwick · BEng Avionics Systems (First Class Honours), University of Liverpool',
+    },
+    {
+      index: '02',
+      name: 'Khashayar Rahimi',
+      discipline: 'Quantitative Analysis & Applied AI',
+      summary:
+        'Focuses on quantitative analysis, financial calculus, applied machine learning, and AI research—translating formal mathematical methods into practical computational models.',
+      education:
+        'MSc Mathematics (Geometric Algebra & Topology), Amirkabir University of Technology · BSc Pure Mathematics, Shahid Beheshti University',
+    },
+    {
+      index: '03',
+      name: 'Ghazaleh Asgari',
+      discipline: 'Mathematics & Quantitative Research',
+      summary:
+        'Brings specialist mathematical expertise and deep research foundations across pure mathematics and physics, supporting quantitative research and trading analysis.',
+      education:
+        'PhD Mathematics, University of Reading · MSc Mathematics, ETH Zurich · MSc & BSc Physics, Sharif University of Technology',
+    },
+    {
+      index: '04',
+      name: 'Ali Hosseinzadeh',
+      discipline: 'Complex Systems & Systematic Risk',
+      summary:
+        'Researches complex systems, financial physics, financial bubble networks, and systematic risk analysis—examining structural fragility and interconnected market behaviour.',
+      education:
+        'PhD Econophysics, Shahid Beheshti University · MSc Mathematical Physics, Kharazmi University',
+    },
+    {
+      index: '05',
+      name: 'Aria Heydari',
+      role: 'Founder',
+      discipline: 'Trading & Financial Markets Research',
+      summary:
+        'Brings nine years of trading and financial research experience alongside background as an investment banking analyst, spanning ETFs, commodities, derivatives, foreign exchange, and digital finance.',
+      education: "Master's in Finance and Economics",
+    },
+  ] satisfies TeamMember[],
+} as const;
+
 export const PHILOSOPHY_CONTENT = {
-  eyebrow: '04 / The Thinking Behind FRT',
+  eyebrow: '05 / Ethos',
   headline: 'Curiosity Is the Starting Point.\nEvidence Is the Standard.',
-  lead: 'Good research requires the imagination to question consensus—and the honesty to abandon your own best hypothesis when evidence disagrees.',
-  body: 'FRT operates as an independent research laboratory and intelligence group. We avoid hype cycles, fabricated certainty, and marketing theater. Across financial research and applied analytics, our standard remains constant: know precisely what the data supports, state uncertainty plainly, and let proof outlast opinion.',
+  lead: 'Sound research requires the independence to question consensus—and the intellectual honesty to discard a promising idea when the evidence disagrees.',
+  body: 'FRT operates with quiet concentration rather than spectacle. Whether investigating financial dynamics or engineering analytical tools for commercial partners, our standard remains consistent: state assumptions clearly, measure uncertainty honestly, and build systems that hold up under scrutiny.',
   axioms: [
     'First Principles',
     'Falsifiability',
-    'Out-of-Sample Discipline',
+    'Out-of-Sample Rigour',
     'Structural Asymmetry',
     'Signal Separation',
     'Intellectual Honesty',
@@ -240,72 +306,73 @@ export const PHILOSOPHY_CONTENT = {
       index: '01',
       title: 'Intellectual Honesty',
       description:
-        'We document assumptions openly, interrogate failure modes, and never blur exploratory ideas with proven results.',
+        'We document assumptions openly, interrogate failure modes, and never blur exploratory hypotheses with validated findings.',
     },
     {
       index: '02',
       title: 'Independent Thinking',
       description:
-        'Crowded models share blind spots. We investigate overlooked variables and non-obvious structural relationships.',
+        'Consensus models converge on shared blind spots. We examine overlooked variables and structural relationships from first principles.',
     },
     {
       index: '03',
       title: 'Rigorous Experimentation',
       description:
-        'Experimental hygiene outweighs model scale. Every finding is audited against data leakage, selection bias, and fragility.',
+        'Experimental discipline outweighs model scale. Every result is audited against leakage, selection bias, and parameter fragility.',
     },
     {
       index: '04',
       title: 'Continuous Learning',
       description:
-        'Markets and operating environments shift continuously; our mathematics, tooling, and mental models adapt in stride.',
+        'Markets and operational environments evolve continuously; our mathematical methods, software tooling, and perspectives evolve with them.',
     },
   ] satisfies PhilosophyPrinciple[],
 } as const;
 
 export const HORIZON_CONTENT = {
-  eyebrow: '05 / Future Direction',
+  eyebrow: '06 / Future Direction',
   headline: 'Built for\nLong-Term Depth.',
   intro:
-    'We draw an explicit line between FRT’s current research operations and the proprietary testing phase we are building toward.',
+    'Alongside our core research and technology activities, FRT maintains a measured long-term roadmap for internal quantitative strategy validation.',
   columns: [
     {
-      tag: 'Current Operations',
+      tag: 'Core Activities',
       status: 'Active',
-      title: 'Research, Intelligence Systems & Analytics',
+      title: 'Quantitative Research, Applied AI & Analytical Solutions',
       description:
-        'Today, FRT focuses on independent quantitative research, building applied AI and analytical software, and supporting organizations on complex data problems.',
+        'FRT’s primary focus sits across quantitative market research, machine learning and AI-powered analytical software, and research-led business intelligence solutions.',
       items: [
-        'Mathematical & statistical investigation across financial markets',
-        'Architecture of custom applied AI tools and analytical pipelines',
-        'Diagnostic data analysis and decision-support software for organizations',
+        'Independent mathematical and statistical research across markets and complex data',
+        'Design and engineering of bespoke AI-powered analytical tools and automation',
+        'Commercial analytics, decision support, and research-led consulting',
       ],
     },
     {
-      tag: 'Longer-Term Ambition',
+      tag: 'Complementary Future Research',
       status: 'Long-Term',
-      title: 'Proprietary Live-Market Testing',
+      title: 'Proprietary Quantitative Strategy Testing',
       description:
-        'As our research architecture and validation standards mature, FRT intends to evaluate selected internally developed strategies using solely our own capital under real market conditions.',
+        'As our internal research infrastructure matures, selected quantitative strategies may be researched and tested using the company’s own capital.',
       items: [
-        'Internal-capital testing reserved strictly for thoroughly validated models',
-        'Disciplined transition from controlled simulation to live environments',
-        'Not FCA-regulated — does not offer brokerage, investment advice, signals, or public funds',
+        'Complementary to FRT’s core research, applied AI, and analytical technology activities',
+        'Internal capital testing reserved strictly for models passing rigorous empirical validation',
+        'Focused on long-term scientific depth and disciplined real-world evaluation',
       ],
     },
   ] satisfies HorizonColumn[],
 } as const;
 
 export const CONTACT_CONTENT = {
-  eyebrow: '06 / Contact',
-  headline: 'Have a Complex Problem\nWorth Exploring?',
+  eyebrow: '07 / Contact',
+  headline: 'Discuss a Project\nor Research Enquiry.',
   supporting:
-    "We're interested in thoughtful conversations, challenging questions, and opportunities where deeper analysis can make a difference.",
-  ctaLabel: 'Get in Touch',
-  inquiryScopes: [
-    'Applied AI & Intelligence Systems',
-    'Business Analytics & Decision Support',
-    'Quantitative Research Collaboration',
-    'General / Exploratory Conversation',
+    'We welcome commercial enquiries, technical challenges, and research conversations where rigorous quantitative thinking and applied AI can create clarity.',
+  ctaLabel: 'Start an Enquiry',
+  enquiryTopics: [
+    'Research collaborations',
+    'Business analytics projects',
+    'Applied AI development',
+    'Quantitative research',
+    'Strategic partnerships',
   ] as const,
 } as const;

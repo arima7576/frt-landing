@@ -5,13 +5,14 @@ import { ManifestoBand } from './components/ManifestoBand';
 import { Perspective } from './components/Perspective';
 import { Disciplines } from './components/Disciplines';
 import { ResearchProcess } from './components/ResearchProcess';
+import { Team } from './components/Team';
 import { Philosophy } from './components/Philosophy';
 import { Horizon } from './components/Horizon';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { useActiveSection } from './hooks/useActiveSection';
 
-const OBSERVED_SECTIONS = ['what-we-do', 'process', 'philosophy', 'contact'] as const;
+const OBSERVED_SECTIONS = ['perspective', 'what-we-do', 'process', 'team', 'contact'] as const;
 
 export const App: React.FC = () => {
   const activeSection = useActiveSection(OBSERVED_SECTIONS);
@@ -40,11 +41,12 @@ export const App: React.FC = () => {
       <Navbar activeSection={activeSection} onStartConversation={openAndScrollToContact} />
 
       <main id="main-content">
-        <Hero onWorkWithUs={openAndScrollToContact} />
+        <Hero />
         <ManifestoBand />
         <Perspective />
         <Disciplines />
         <ResearchProcess />
+        <Team />
         <Philosophy />
         <Horizon />
         <Contact isOpen={contactOpen} onOpen={() => setContactOpen(true)} />

@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
       <div className="container">
         <div className="footer-panels">
           <div className="footer-card">
-            <h3 className="footer-card__title">Research</h3>
+            <h3 className="footer-card__title">Capabilities</h3>
             <ul className="footer-card__links">
               <li>
                 <a href="#quantitative-research" className="footer-card__link">
@@ -19,24 +19,24 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="#applied-ai-intelligence" className="footer-card__link">
-                  Applied AI &amp; Intelligence
+                <a href="#applied-ai-data-science" className="footer-card__link">
+                  Applied AI &amp; Data Science
                 </a>
               </li>
               <li>
-                <a href="#business-analytics" className="footer-card__link">
-                  Business Analytics
+                <a href="#business-intelligence-solutions" className="footer-card__link">
+                  Business Intelligence &amp; Solutions
                 </a>
               </li>
             </ul>
           </div>
 
           <div className="footer-card">
-            <h3 className="footer-card__title">Methodology</h3>
+            <h3 className="footer-card__title">Practice</h3>
             <ul className="footer-card__links">
               <li>
                 <a href="#perspective" className="footer-card__link">
-                  Our Perspective
+                  About FRT
                 </a>
               </li>
               <li>
@@ -45,8 +45,8 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="#horizon" className="footer-card__link">
-                  Future Direction
+                <a href="#team" className="footer-card__link">
+                  Team
                 </a>
               </li>
             </ul>
@@ -56,13 +56,13 @@ export const Footer: React.FC = () => {
             <h3 className="footer-card__title">Fluid Research &amp; Technologies</h3>
             <ul className="footer-card__links">
               <li>
-                <a href="#philosophy" className="footer-card__link">
-                  Thinking Behind FRT
+                <a href="#horizon" className="footer-card__link">
+                  Future Direction
                 </a>
               </li>
               <li>
                 <a href="#contact" className="footer-card__link">
-                  Start a Conversation
+                  Discuss a Project
                 </a>
               </li>
               <li>
@@ -74,7 +74,7 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* High-Contrast Alabaster Brand Plate (Optiver-inspired editorial finale) */}
+        {/* High-Contrast Alabaster Brand Plate */}
         <div className="footer-brand-plate">
           <div className="footer-brand-plate__top">
             <a href="#top" className="brand-mark brand-mark--light" aria-label="FRT back to top">
@@ -88,16 +88,15 @@ export const Footer: React.FC = () => {
           </div>
 
           <p className="footer-brand-plate__copy">
-            <strong>{COMPANY_INFO.legalName}</strong> ({COMPANY_INFO.shortName}) operates at the
-            intersection of quantitative market research, mathematical modelling, software systems,
-            and applied artificial intelligence—investigating complexity to uncover durable
-            structure and build clear analytical tools. Not FCA-regulated; does not provide
-            investment advice or manage third-party capital.
+            <strong>{COMPANY_INFO.legalName}</strong> ({COMPANY_INFO.shortName}) is an independent
+            quantitative research and applied AI company—combining mathematics, statistics,
+            financial research, data science, and AI to deliver practical tools, rigorous insights,
+            and analytical solutions.
           </p>
 
           <div className="footer-brand-plate__bottom">
             <a href="#perspective" className="footer-brand-plate__link">
-              Explore our perspective →
+              About FRT →
             </a>
             <span className="footer-brand-plate__meta">
               {COMPANY_INFO.jurisdiction} · Company No. {COMPANY_INFO.companyNumber}
@@ -112,13 +111,6 @@ export const Footer: React.FC = () => {
           </span>
 
           <div className="footer-legal-links">
-            <button
-              type="button"
-              className="footer-legal-btn"
-              onClick={() => setActiveLegalDoc('disclosures')}
-            >
-              Regulatory &amp; Legal Notice
-            </button>
             <button
               type="button"
               className="footer-legal-btn"
